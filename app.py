@@ -25,7 +25,14 @@ while 1:
             res = 1
 
     if res == 1:
-        print("richtig")
+        print("right")
+
+        print("UPDATE vocabulary SET correct = correct + 1 WHERE german='" + vocab[1] + "' AND english='" +
+              vocab[0] + "'")
+
+        cursor.execute("UPDATE vocabulary SET correct = correct + 1 WHERE german='"
+                       + vocab[1] + "' AND english='" + vocab[0] + "'")
+        connection.commit()
     else:
         print(german)
         
